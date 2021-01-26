@@ -1,1 +1,1 @@
-## Simple examples of a apps using kmutil and kmapi
+## Simple examples of apps using kmutil and kmapi
