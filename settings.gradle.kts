@@ -5,3 +5,4 @@ includeBuild("kmUtilCommonExample")
 
 includeBuild("kmUtilJvmExample")
 
+includeBuild("kmUtilLinuxExample")
