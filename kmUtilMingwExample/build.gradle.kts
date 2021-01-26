@@ -18,7 +18,7 @@ repositories {
 
 
 kotlin {
-	val nativeTarget = mingw("native")
+	val nativeTarget = mingwX64("native")
 
 	nativeTarget.apply {
 		binaries {
