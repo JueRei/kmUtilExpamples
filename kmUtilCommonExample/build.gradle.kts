@@ -65,21 +65,21 @@ kotlin {
 	sourceSets {
 		val commonMain by getting {
 			dependencies {
-				api ("de.rdvsb:kmapi:0.1-SNAPSHOT")
-				api ("de.rdvsb:kmutil:0.1-SNAPSHOT")
+				api ("de.rdvsb:kmapi:0.+")
+				api ("de.rdvsb:kmutil:0.+")
 			}
 		}
 
 		val nativeMain by getting {
 			dependencies {
-				api ("de.rdvsb:kmapi:0.1-SNAPSHOT")
-				api ("de.rdvsb:kmutil:0.1-SNAPSHOT")
+				api ("de.rdvsb:kmapi:0.+")
+				api ("de.rdvsb:kmutil:0.+")
 			}
 		}
 		val nativeTest by getting {
 			dependencies {
-				api ("de.rdvsb:kmapi:0.1-SNAPSHOT")
-				api ("de.rdvsb:kmutil:0.1-SNAPSHOT")
+				api ("de.rdvsb:kmapi:0.+")
+				api ("de.rdvsb:kmutil:0.+")
 			}
 		}
 	}

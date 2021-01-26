@@ -21,8 +21,8 @@ repositories {
 dependencies {
     testImplementation(kotlin("test-junit"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-    implementation("de.rdvsb:kmapi-jvm:0.1-SNAPSHOT")
-    implementation("de.rdvsb:kmutil-jvm:0.1-SNAPSHOT")
+    implementation("de.rdvsb:kmapi-jvm:0.+")
+    implementation("de.rdvsb:kmutil-jvm:0.+")
 }
 
 tasks.test {
@@ -39,7 +39,7 @@ application {
 
 tasks {
     // some default application args for the gradle run task
-    run.get().args = arrayListOf("--help")
+    run.get().args = arrayListOf("--debug")
 
 }
 
