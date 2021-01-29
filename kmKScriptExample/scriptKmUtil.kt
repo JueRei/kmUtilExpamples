@@ -1,22 +1,27 @@
 #!/usr/bin/env kscript
 
-// a .kt KSrcipt with a main function
+@file:CompilerOpts("-jvm-target 1.8")
+@file:MavenRepository("local", "file:///files.jet.rdvsb.de/install/Lib/MavenLinux/repository/")
+@file:DependsOn("de.rdvsb:kmapi-jvm:0.1.2-SNAPSHOT")
+@file:DependsOn("de.rdvsb:kmutil-jvm:0.1.2-SNAPSHOT")
 
 @file:MavenRepository("central", "https://repo.maven.apache.org/maven2/")
 @file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
 
-//@file:MavenRepository("local", "file:///<location of km libs>/repository/")
-// Default: load from maven local ($HOME/.m2)
-@file:DependsOn("de.rdvsb:kmapi-jvm:0.1-SNAPSHOT")
-@file:DependsOn("de.rdvsb:kmutil-jvm:0.1-SNAPSHOT")
+//import DependsOn
+import sun.misc.Signal
+import kotlin.contracts.ExperimentalContracts
 
 import de.rdvsb.kmapi.*
 import de.rdvsb.kmutil.*
+import kotlin.time.ExperimentalTime
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * parse arguments and store the argument values
  *
- * extend BasicGetArgs class from scriptUtil.kt to build real getArgs object
+ * extend BasicGetArgs class from kmtUtil to build real getArgs object
  */
 class GetArgs : BasicGetArgs() {
 	init {
