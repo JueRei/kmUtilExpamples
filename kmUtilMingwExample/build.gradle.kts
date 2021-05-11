@@ -2,18 +2,18 @@ import org.jetbrains.kotlin.gradle.dsl.Coroutines
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	kotlin("multiplatform") version "1.4.21"
+	kotlin("multiplatform") version "1.5.0"
 }
 
 group = "de.rdvsb"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 val kotlin_version = kotlin.coreLibrariesVersion  // read setting from kotlin plugin
+val coroutinesVersion = "1.4.3"
 
 repositories {
     mavenLocal()
     mavenCentral()
-    jcenter()
 }
 
 

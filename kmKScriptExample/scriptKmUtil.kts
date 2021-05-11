@@ -3,12 +3,12 @@
 // a simple KTS (no main)
 
 @file:MavenRepository("central", "https://repo.maven.apache.org/maven2/")
-@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
+@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
 
 //@file:MavenRepository("local", "file:///<location of km libs>/repository/")
 // Default: load from maven local ($HOME/.m2)
-@file:DependsOn("de.rdvsb:kmapi-jvm:0.1-SNAPSHOT")
-@file:DependsOn("de.rdvsb:kmutil-jvm:0.1-SNAPSHOT")
+@file:DependsOn("de.rdvsb:kmapi-jvm:0.1.3-SNAPSHOT")
+@file:DependsOn("de.rdvsb:kmutil-jvm:0.1.3-SNAPSHOT")
 
 import de.rdvsb.kmapi.*
 import de.rdvsb.kmutil.*

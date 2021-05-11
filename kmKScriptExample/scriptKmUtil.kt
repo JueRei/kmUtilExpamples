@@ -2,11 +2,11 @@
 
 @file:CompilerOpts("-jvm-target 1.8")
 @file:MavenRepository("local", "file:///files.jet.rdvsb.de/install/Lib/MavenLinux/repository/")
-@file:DependsOn("de.rdvsb:kmapi-jvm:0.1.2-SNAPSHOT")
-@file:DependsOn("de.rdvsb:kmutil-jvm:0.1.2-SNAPSHOT")
+@file:DependsOn("de.rdvsb:kmapi-jvm:0.1.3-SNAPSHOT")
+@file:DependsOn("de.rdvsb:kmutil-jvm:0.1.3-SNAPSHOT")
 
 @file:MavenRepository("central", "https://repo.maven.apache.org/maven2/")
-@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9")
+@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
 
 //import DependsOn
 import sun.misc.Signal
