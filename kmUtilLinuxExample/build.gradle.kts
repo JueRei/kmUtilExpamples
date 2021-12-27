@@ -2,23 +2,40 @@ import org.jetbrains.kotlin.gradle.dsl.Coroutines
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	kotlin("multiplatform") version "1.5.0"
+	kotlin("multiplatform")
+	//kotlin("jvm") version "1.5.21"
+	//kotlin("jvm") version "1.5.21"
 }
 
 group = "de.rdvsb"
 version = "1.0-SNAPSHOT"
 
-val kotlin_version = kotlin.coreLibrariesVersion  // read setting from kotlin plugin
-val coroutinesVersion = "1.4.3"
+//val kotlin_version = kotlin.coreLibrariesVersion  // read setting from kotlin plugin
+val ktor_version: String by project
+val kotlin_version: String by project
+val logback_version: String by project
+val kotlin_coroutines_version: String by project
+val kotlin_serialization_version: String by project
+val kotlin_date_version: String by project
+val kmapi_version: String by project
+val kmutil_version: String by project
 
 repositories {
     mavenLocal()
     mavenCentral()
-    jcenter()
 }
 
-
 kotlin {
+	targets.all {
+		compilations.all {
+			kotlinOptions {
+				allWarningsAsErrors = false
+				freeCompilerArgs += "-Xopt-in=kotlin.time.ExperimentalTime"
+				//freeCompilerArgs += "-Xopt-in=kotlinx.serialization.ExperimentalSerializationApi"
+			}
+		}
+	}
+
 	val nativeTarget = linuxX64("native")
 
 	nativeTarget.apply {
@@ -31,17 +48,22 @@ kotlin {
 	sourceSets {
 		val nativeMain by getting {
 			dependencies {
-				api ("de.rdvsb:kmapi:0.+")
-				api ("de.rdvsb:kmutil:0.+")
+				api ("de.rdvsb:kmapi:$kmapi_version")
+				api ("de.rdvsb:kmutil:$kmutil_version")
 			}
 		}
 
 		val nativeTest by getting {
 			dependencies {
-				api ("de.rdvsb:kmapi:0.+")
-				api ("de.rdvsb:kmutil:0.+")
+				api ("de.rdvsb:kmapi:$kmapi_version")
+				api ("de.rdvsb:kmutil:$kmutil_version")
 			}
 		}
 	}
+}
+
+dependencies {
+	//implementation(kotlin("stdlib-jdk8"))
+	//implementation(kotlin("stdlib-jdk8"))
 }
 

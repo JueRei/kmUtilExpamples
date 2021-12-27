@@ -3,7 +3,7 @@
 // a simple KTS (no main)
 
 @file:MavenRepository("central", "https://repo.maven.apache.org/maven2/")
-@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
 
 //@file:MavenRepository("local", "file:///<location of km libs>/repository/")
 // Default: load from maven local ($HOME/.m2)

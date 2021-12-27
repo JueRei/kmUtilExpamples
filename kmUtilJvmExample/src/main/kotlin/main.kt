@@ -1,6 +1,9 @@
-import de.rdvsb.kmapi.*
-import de.rdvsb.kmutil.*
-
+import de.rdvsb.kmapi.File
+import de.rdvsb.kmapi.System
+import de.rdvsb.kmutil.BasicGetArgs
+import de.rdvsb.kmutil.basicGetArgs
+import de.rdvsb.kmutil.exit
+import de.rdvsb.kmutil.logMessage
 
 /**
  * parse arguments and store the argument values
@@ -11,6 +14,7 @@ class GetArgs : BasicGetArgs() {
 	init {
 		appPath = updateAppPath(this)
 		basicGetArgs = this // overwrite basicGetArgs initialized with empty placeholder in scriptUtil.kt with the real one
+		isTest = false
 	}
 
 	val MINNAMES = 0
@@ -18,8 +22,6 @@ class GetArgs : BasicGetArgs() {
 	var isSimulate = false
 	val isNotSimulate get() = !isSimulate
 
-	var isTest = false
-	val isNotTest get() = !isTest
 	var dir = ""
 	val names = mutableListOf<String>()
 

@@ -1,16 +1,21 @@
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
-	kotlin("multiplatform") version "1.5.0"
+	kotlin("multiplatform")
 	//application
+	//kotlin("jvm") version "1.5.21"
 }
 
 group = "de.rdvsb"
 version = "1.1-SNAPSHOT"
 
-val kotlin_version = kotlin.coreLibrariesVersion  // read setting from kotlin plugin
-val coroutinesVersion = "1.4.3"
+//val kotlin_version = kotlin.coreLibrariesVersion  // read setting from kotlin plugin
+val ktor_version: String by project
+val kotlin_version: String by project
+val logback_version: String by project
+val kotlin_coroutines_version: String by project
+val kotlin_serialization_version: String by project
+val kotlin_date_version: String by project
+val kmapi_version: String by project
+val kmutil_version: String by project
 
 repositories {
     mavenLocal()
@@ -27,6 +32,7 @@ kotlin {
 		testRuns["test"].executionTask.configure {
 			useJUnit()
 		}
+
 
         // add a build -> fatJar to Gradle tasks
 		compilations {
@@ -65,21 +71,21 @@ kotlin {
 	sourceSets {
 		val commonMain by getting {
 			dependencies {
-				api ("de.rdvsb:kmapi:0.+")
-				api ("de.rdvsb:kmutil:0.+")
+				api ("de.rdvsb:kmapi:$kmapi_version")
+				api ("de.rdvsb:kmutil:$kmutil_version")
 			}
 		}
 
 		val nativeMain by getting {
 			dependencies {
-				api ("de.rdvsb:kmapi:0.+")
-				api ("de.rdvsb:kmutil:0.+")
+				api ("de.rdvsb:kmapi:$kmapi_version")
+				api ("de.rdvsb:kmutil:$kmutil_version")
 			}
 		}
 		val nativeTest by getting {
 			dependencies {
-				api ("de.rdvsb:kmapi:0.+")
-				api ("de.rdvsb:kmutil:0.+")
+				api ("de.rdvsb:kmapi:$kmapi_version")
+				api ("de.rdvsb:kmutil:$kmutil_version")
 			}
 		}
 	}
@@ -105,4 +111,15 @@ val jarMain by tasks.creating(JavaExec::class) {
 ////    mainClass.set ("Main")
 //    mainClassName = "MainKt"
 //    println ("application mainClass=${mainClass.get()}")
+//}
+//dependencies {
+//	implementation(kotlin("stdlib-jdk8"))
+//}
+//val compileKotlin: KotlinCompile by tasks
+//compileKotlin.kotlinOptions {
+//	jvmTarget = "1.8"
+//}
+//val compileTestKotlin: KotlinCompile by tasks
+//compileTestKotlin.kotlinOptions {
+//	jvmTarget = "1.8"
 //}

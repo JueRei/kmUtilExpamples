@@ -1,5 +1,9 @@
 import de.rdvsb.kmapi.*
 import de.rdvsb.kmutil.*
+import kotlin.collections.*
+import kotlin.ranges.*
+
+
 
 /**
  * parse arguments and store the argument values
@@ -10,6 +14,7 @@ class GetArgs : BasicGetArgs() {
 	init {
 		appPath = updateAppPath(this)
 		basicGetArgs = this // overwrite basicGetArgs initialized with empty placeholder in scriptUtil.kt with the real one
+		isTest = false
 	}
 
 	val MINNAMES = 0
@@ -17,10 +22,9 @@ class GetArgs : BasicGetArgs() {
 	var isSimulate = false
 	val isNotSimulate get() = !isSimulate
 
-	var isTest = false
-	val isNotTest get() = !isTest
 	var dir = ""
 	val names = mutableListOf<String>()
+	val ynames = listOf<String>()
 
 	/**
 	 * parse an [Array] of [String] as commandline parameters and set properties accordingly.
@@ -115,5 +119,5 @@ fun main(args: Array<String>) {
 //	println("renameTo=${f.renameTo(KmFile("/tmp/x.y"))}, newPath=${f.path}")
 
 	logMessage('I', "kmutil-jvm example end")
-
 }
+

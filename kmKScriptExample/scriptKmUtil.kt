@@ -6,7 +6,7 @@
 @file:DependsOn("de.rdvsb:kmutil-jvm:0.1.3-SNAPSHOT")
 
 @file:MavenRepository("central", "https://repo.maven.apache.org/maven2/")
-@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+@file:DependsOn("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.1")
 
 //import DependsOn
 import sun.misc.Signal

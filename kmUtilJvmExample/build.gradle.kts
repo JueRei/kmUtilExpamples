@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.Coroutines
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.5.0"
+    kotlin("jvm")
     application
     java
 }
@@ -10,8 +10,15 @@ plugins {
 group = "de.rdvsb"
 version = "1.1-SNAPSHOT"
 
-val kotlin_version = kotlin.coreLibrariesVersion  // read setting from kotlin plugin
-val coroutinesVersion = "1.4.3"
+//val kotlin_version = kotlin.coreLibrariesVersion  // read setting from kotlin plugin
+val ktor_version: String by project
+val kotlin_version: String by project
+val logback_version: String by project
+val kotlin_coroutines_version: String by project
+val kotlin_serialization_version: String by project
+val kotlin_date_version: String by project
+val kmapi_version: String by project
+val kmutil_version: String by project
 
 repositories {
     mavenLocal()
@@ -20,16 +27,17 @@ repositories {
 
 dependencies {
     testImplementation(kotlin("test-junit"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
-    implementation("de.rdvsb:kmapi-jvm:0.+")
-    implementation("de.rdvsb:kmutil-jvm:0.+")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version")
+    implementation("de.rdvsb:kmapi-jvm:$kmapi_version")
+    implementation("de.rdvsb:kmutil-jvm:$kmutil_version")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 tasks.test {
     useJUnit()
 }
 
-tasks.withType<KotlinCompile> {
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
@@ -76,4 +84,12 @@ tasks.register<Jar>("fatJar") {
 	//     }
 	//
 	// }
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    jvmTarget = "1.8"
+}
+val compileTestKotlin: KotlinCompile by tasks
+compileTestKotlin.kotlinOptions {
+    jvmTarget = "1.8"
 }

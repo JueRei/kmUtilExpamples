@@ -10,6 +10,7 @@ class GetArgs : BasicGetArgs() {
 	init {
 		appPath = updateAppPath(this)
 		basicGetArgs = this // overwrite basicGetArgs initialized with empty placeholder in scriptUtil.kt with the real one
+		isTest = false
 	}
 
 	val MINNAMES = 0
@@ -17,8 +18,6 @@ class GetArgs : BasicGetArgs() {
 	var isSimulate = false
 	val isNotSimulate get() = !isSimulate
 
-	var isTest = false
-	val isNotTest get() = !isTest
 	var dir = ""
 	val names = mutableListOf<String>()
 
